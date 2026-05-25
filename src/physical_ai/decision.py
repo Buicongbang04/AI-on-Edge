@@ -57,18 +57,28 @@ class GoalSeekDecision:
         self.turn_gain = float(turn_gain)
 
     def decide(self, obs: Observation) -> Action:
-        # Obstacle avoidance takes precedence
-        if obs.nearest_obstacle_distance < self.obstacle_safety_dist:
-            return Action(forward_speed=-0.3, turn_rate=0.8)
-
         if obs.distance_to_goal <= self.goal_tolerance:
             return Action(forward_speed=0.0, turn_rate=0.0)
 
-        # Forward speed scales with distance (capped at max_forward).
-        # We slow down when bearing error is large (avoid swinging far off course).
+        # Obstacle avoidance: blend goal-seek with repulsion away from nearest obstacle.
+        # The closer the obstacle, the more the repulsion dominates.
+        nob_d = obs.nearest_obstacle_distance
+        if nob_d < self.obstacle_safety_dist and nob_d != float("inf"):
+            # Repulsion bearing: turn AWAY from the obstacle (opposite sign).
+            repulsion_bearing = -obs.nearest_obstacle_bearing
+            # Weight: 1.0 right at the obstacle, 0.0 at safety distance
+            w = max(0.0, 1.0 - nob_d / self.obstacle_safety_dist)
+            target_bearing = (1.0 - w) * obs.bearing_to_goal + w * repulsion_bearing
+            # Move slowly; if the obstacle is almost at our wheels, back off
+            if nob_d < 0.5 * self.obstacle_safety_dist:
+                forward = -0.2
+            else:
+                forward = 0.2 * (1.0 - w)
+            turn = max(-1.0, min(1.0, self.turn_gain * target_bearing))
+            return Action(forward_speed=forward, turn_rate=turn)
+
+        # Normal goal-seek: forward speed scales with distance, slowed by bearing error.
         bearing_factor = max(0.0, math.cos(obs.bearing_to_goal))
         forward = min(self.max_forward, obs.distance_to_goal) * bearing_factor
-
-        # Turn proportional to bearing
         turn = max(-1.0, min(1.0, self.turn_gain * obs.bearing_to_goal))
         return Action(forward_speed=forward, turn_rate=turn)

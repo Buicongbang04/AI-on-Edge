@@ -1,0 +1,15 @@
+{
+  "reached_goal": true,
+  "steps": 373,
+  "total_distance": 9.858,
+  "safety_blocks_by_reason": {
+    "speed_clamp": 250
+  },
+  "final_pose": [
+    7.860079524674006,
+    7.796429758627681,
+    0.9634132753053264
+  ],
+  "iter_mean_ms": 0.00508538340697447,
+  "iter_p95_ms": 0.005649000740959305
+}

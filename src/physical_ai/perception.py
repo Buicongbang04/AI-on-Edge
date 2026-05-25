@@ -23,8 +23,9 @@ class Observation:
     # Goal-relative cues
     distance_to_goal: float
     bearing_to_goal: float          # radians, robot frame: 0 = straight ahead
-    # Obstacle cue (closest obstacle distance; +inf if none)
+    # Obstacle cue (closest obstacle; +inf distance, 0 bearing if no obstacle)
     nearest_obstacle_distance: float
+    nearest_obstacle_bearing: float = 0.0   # radians from robot heading; 0 = dead ahead
     # Confidence (0..1). Lower means perception is uncertain; safety / decision should use it.
     confidence: float = 1.0
 
@@ -58,27 +59,30 @@ class GridWorldPerception:
         absolute_angle = math.atan2(dy, dx)
         bearing = self._wrap(absolute_angle - theta)
 
-        # Closest obstacle
-        nearest = float("inf")
+        # Closest obstacle (track both distance and bearing)
+        nearest_d = float("inf")
+        nearest_b = 0.0
         if obstacles_xy:
             for ox, oy in obstacles_xy:
                 d = math.hypot(ox - x, oy - y)
-                if d < nearest:
-                    nearest = d
+                if d < nearest_d:
+                    nearest_d = d
+                    nearest_b = self._wrap(math.atan2(oy - y, ox - x) - theta)
 
         # Apply optional perception noise
         if self.noise_std > 0:
             dist += self._noise() * self.noise_std
             bearing += self._noise() * self.noise_std * 0.1
-            if nearest != float("inf"):
-                nearest += self._noise() * self.noise_std
+            if nearest_d != float("inf"):
+                nearest_d += self._noise() * self.noise_std
 
         confidence = max(self.confidence_floor, 1.0 - self.noise_std)
         return Observation(
             x=x, y=y, theta=theta,
             distance_to_goal=max(0.0, dist),
             bearing_to_goal=bearing,
-            nearest_obstacle_distance=nearest,
+            nearest_obstacle_distance=nearest_d,
+            nearest_obstacle_bearing=nearest_b,
             confidence=confidence,
         )
 
