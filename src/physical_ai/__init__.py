@@ -7,9 +7,9 @@ Modules:
     safety      — safety gate that filters action commands before they reach the actuator
 
 Glue them in this order:
-    sensors → perception → state → decision → controller → safety → actuator → environment
-                                                                                  │
-                                              feedback (new sensor readings) ◄────┘
+    sensors -> perception -> state -> decision -> controller -> safety -> actuator -> environment
+                                                                                       |
+                                              feedback (new sensor readings) <---------+
 """
 from .perception import GridWorldPerception, Observation
 from .decision import GoalSeekDecision, Action

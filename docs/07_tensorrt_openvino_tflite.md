@@ -228,8 +228,8 @@ Lessons:
 
 | Script | Hardware required | Runs at Level 1? |
 |---|---|---|
-| `src/inference/infer_pytorch.py` | Any | ✓ |
-| `src/inference/infer_onnxruntime.py` | Any | ✓ |
+| `src/inference/infer_pytorch.py` | Any |  |
+| `src/inference/infer_onnxruntime.py` | Any |  |
 | `src/inference/infer_tensorrt.py` | NVIDIA GPU with TensorRT | only on Jetson / desktop CUDA |
 | `src/inference/infer_openvino.py` | Intel CPU / iGPU / NPU | runs on Intel CPU at Level 1 |
 

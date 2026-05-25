@@ -85,7 +85,7 @@ You almost never get all three. Pick two:
 
 ```
             high compute
-                  ▲
+                  ^
                   │
           Jetson Orin AGX    Intel NUC + Hailo
                   │
@@ -94,7 +94,7 @@ You almost never get all three. Pick two:
                   │
                   │
                   │
-      ◄───────────┼───────────►  low cost
+      <───────────┼───────────>  low cost
                   │
                   │
       Raspberry Pi 5
@@ -102,7 +102,7 @@ You almost never get all three. Pick two:
         Coral TPU stick
                   │
         ESP32 / Cortex-M
-                  ▼
+                  v
             low power
 ```
 

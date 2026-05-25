@@ -170,7 +170,7 @@ Pipeline:
 ```
 big teacher (e.g. ResNet-50)
        │
-       ▼
+       v
 small student (e.g. MobileNetV3-Small)
    trained on:  α · CE(student, hard_labels)
               + (1-α) · KL(soft_student_logits/T, soft_teacher_logits/T) * T²

@@ -9,12 +9,12 @@ This is the first chapter of **Part 4**. Up to now the course has built systems 
 ## 1. The loop
 
 ```
-sensors ─► perception ─► state ─► decision ─► controller ─► safety gate ─► actuator ─► environment
+sensors ─> perception ─> state ─> decision ─> controller ─> safety gate ─> actuator ─> environment
                                                                                             │
-                                                                                            ▼
+                                                                                            v
                                                                                     (new sensor reading)
                                                                                             │
-                                                                                            └──► sensors ...
+                                                                                            └──> sensors ...
 ```
 
 The six required stages are:

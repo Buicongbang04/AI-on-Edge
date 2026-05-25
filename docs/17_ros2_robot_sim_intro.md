@@ -27,8 +27,8 @@ The main concepts:
 A typical robot graph looks like:
 
 ```
-[camera_driver]──► /image_raw ─►[detector]──► /detections ─►[planner]──► /cmd_vel ─►[motor_driver]
-                                                                              ▲
+[camera_driver]──> /image_raw ─>[detector]──> /detections ─>[planner]──> /cmd_vel ─>[motor_driver]
+                                                                              ^
                                                           [safety_node] ──────┘ (gates /cmd_vel)
 ```
 

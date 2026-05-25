@@ -11,19 +11,19 @@ Camera AI is the most visible application of Edge AI, but **sensor AI is the lar
 ```
 [ sensor stream ]
        │ (Hz to kHz)
-       ▼
+       v
 [ windowing ]         ← sliding window of N samples
        │
-       ▼
+       v
 [ feature extraction ]   ← stats, FFT, mel-spec, or raw
        │
-       ▼
+       v
 [ tiny model ]            ← autoencoder, 1D CNN, small RNN, or classifier
        │
-       ▼
+       v
 [ anomaly / class score ]
        │
-       ▼
+       v
 [ alert | MQTT | dashboard | log ]
 ```
 
