@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual envs
+venv/
+.venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Experiments — large files should not go to git
+experiments/checkpoints/*
+!experiments/checkpoints/.gitkeep
+experiments/exported_models/*
+!experiments/exported_models/.gitkeep
+experiments/logs/*
+!experiments/logs/.gitkeep
+
+# Datasets — usually too large for git
+datasets/*
+!datasets/.gitkeep
+!datasets/README.md
+!datasets/sample.jpg
+
+# Model files
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+*.tflite
+*.openvino
+*.bin
+*.xml
+*.mlmodel
+
+# Common large outputs
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar.gz
+*.h5
+
+# Allow specific small sample models if needed
+!docs/**/sample_*.pt
+!datasets/sample_*.jpg

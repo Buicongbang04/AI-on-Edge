@@ -1,0 +1,61 @@
+name: edge-ai
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip>=24.0
+
+  # Scientific Python (faster from conda-forge)
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy>=1.11
+  - scikit-learn>=1.4
+  - matplotlib>=3.8
+  - pillow>=10.0
+
+  # Jupyter
+  - jupyter>=1.0
+  - jupyterlab>=4.0
+  - ipykernel
+  - ipywidgets
+
+  # YAML / progress / config
+  - pyyaml>=6.0
+  - tqdm>=4.66
+  - rich>=13.7
+
+  # Testing
+  - pytest>=8.0
+
+  - pip:
+      # PyTorch (CPU build by default). For CUDA, install from pytorch.org with the right cu*** suffix.
+      - torch>=2.2
+      - torchvision>=0.17
+
+      # ONNX
+      - onnx>=1.16
+      - onnxruntime>=1.17
+
+      # Computer vision
+      - opencv-python>=4.9
+
+      # Object detection
+      - ultralytics>=8.1
+
+      # MQTT (Ch 11 sensor demos)
+      - paho-mqtt>=2.0
+
+      # OPTIONAL — uncomment only if the target hardware is available:
+      # - onnxruntime-gpu>=1.17       # NVIDIA GPU / Jetson
+      # - openvino>=2024.0            # Intel CPU/NPU
+      # - openvino-dev>=2024.0
+      # - tensorflow>=2.16            # provides tf.lite converter for TFLite
+      # - tflite-runtime              # microcontroller-class inference
+
+# Notes:
+# - Inside this repo you may also use an existing conda env (e.g. `aicourse`) by running:
+#     pip install -r requirements.txt
+# - For NVIDIA Jetson, do not install torch/onnxruntime from pip generically — use NVIDIA's
+#   Jetson-specific wheels. See hardware_notes/nvidia_jetson.md.

@@ -1,0 +1,55 @@
+# Core scientific Python
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+matplotlib>=3.8
+pillow>=10.0
+
+# PyTorch (CPU build; for CUDA, install from pytorch.org with the correct cu** suffix)
+torch>=2.2
+torchvision>=0.17
+
+# ONNX export and runtime
+onnx>=1.16
+onnxruntime>=1.17
+
+# Computer vision
+opencv-python>=4.9
+
+# Jupyter / notebooks
+jupyter>=1.0
+jupyterlab>=4.0
+
+# Object detection (YOLO)
+ultralytics>=8.1
+
+# Quantization helpers
+onnxruntime-tools>=1.7 ; python_version < "3.11"
+
+# Sensor / time-series (Ch 11)
+scipy>=1.11
+
+# MQTT (Ch 11 sensor demos)
+paho-mqtt>=2.0
+
+# YAML configs
+pyyaml>=6.0
+
+# Logging / progress
+tqdm>=4.66
+rich>=13.7
+
+# Testing
+pytest>=8.0
+
+# OPTIONAL (install only if you have the matching hardware) ===========================
+# NVIDIA Jetson / GPU TensorRT:
+#   - install via NVIDIA SDK Manager or pip install tensorrt (Jetson-specific wheel)
+#   - install onnxruntime-gpu instead of onnxruntime above
+# Intel CPU/NPU:
+#   - openvino>=2024.0
+#   - openvino-dev>=2024.0
+# TFLite for mobile/edge:
+#   - tensorflow>=2.16 (provides tf.lite converter)
+# TinyML / Edge Impulse:
+#   - tflite-runtime (for inference on RPi/microcontroller-class targets)
