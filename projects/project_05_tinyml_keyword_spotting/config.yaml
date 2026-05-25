@@ -1,0 +1,10 @@
+sample_rate_hz: 16000
+window_ms: 30
+hop_ms: 10
+n_mfcc: 10
+n_classes: 3
+samples_per_class: 200
+epochs: 25
+batch_size: 32
+learning_rate: 0.001
+seed: 0

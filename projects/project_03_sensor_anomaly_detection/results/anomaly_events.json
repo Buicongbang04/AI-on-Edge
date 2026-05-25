@@ -1,0 +1,52 @@
+[
+  {
+    "ts": 1779736043.000562,
+    "device_id": "MOTOR-SYNTH",
+    "window_start_s": 0.256,
+    "window_end_s": 0.704,
+    "score_max": 0.05517935752868652,
+    "score_mean": 0.04220001772046089,
+    "threshold": 0.003076075343415141,
+    "consecutive_windows": 6
+  },
+  {
+    "ts": 1779736043.000602,
+    "device_id": "MOTOR-SYNTH",
+    "window_start_s": 1.28,
+    "window_end_s": 1.7919999999999998,
+    "score_max": 0.05540776252746582,
+    "score_mean": 0.03719908371567726,
+    "threshold": 0.003076075343415141,
+    "consecutive_windows": 7
+  },
+  {
+    "ts": 1779736043.0006216,
+    "device_id": "MOTOR-SYNTH",
+    "window_start_s": 4.48,
+    "window_end_s": 5.376,
+    "score_max": 0.05630471184849739,
+    "score_mean": 0.04043108597397804,
+    "threshold": 0.003076075343415141,
+    "consecutive_windows": 13
+  },
+  {
+    "ts": 1779736043.0006332,
+    "device_id": "MOTOR-SYNTH",
+    "window_start_s": 7.232,
+    "window_end_s": 7.744,
+    "score_max": 0.05493816360831261,
+    "score_mean": 0.03742462769150734,
+    "threshold": 0.003076075343415141,
+    "consecutive_windows": 7
+  },
+  {
+    "ts": 1779736043.0006437,
+    "device_id": "MOTOR-SYNTH",
+    "window_start_s": 9.152,
+    "window_end_s": 9.6,
+    "score_max": 0.054708242416381836,
+    "score_mean": 0.042739782482385635,
+    "threshold": 0.003076075343415141,
+    "consecutive_windows": 6
+  }
+]

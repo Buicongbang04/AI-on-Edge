@@ -1,0 +1,11 @@
+sample_rate_hz: 1000
+window_samples: 128
+stride_samples: 64
+n_channels: 3
+latent_dim: 16
+epochs: 30
+batch_size: 64
+learning_rate: 0.001
+threshold_quantile: 0.99
+alert_min_consecutive: 2
+seed: 0
