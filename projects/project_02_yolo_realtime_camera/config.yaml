@@ -1,0 +1,7 @@
+model: yolov8n.pt          # ultralytics auto-downloads on first use
+imgsz: 640                 # square input size
+conf: 0.25                 # min confidence to keep a detection
+iou:  0.45                 # NMS IoU threshold
+device: auto               # auto | cpu | cuda | 0
+classes: null              # null = all classes; or list of COCO indices: [0, 67]
+record: results/demo.mp4   # default record path (used when --record passed without arg)
